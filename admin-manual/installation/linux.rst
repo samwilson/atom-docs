@@ -369,6 +369,14 @@ called :file:`/etc/php5/fpm/pool.d/atom.conf`:
 Note that the section "Zend OPcache" won't work in Ubuntu 12.04. Comment it out
 or remove it unless you are using Ubuntu 14.04.
 
+.. note::
+
+   There is a bug with the PHP 5.5.9 Zend Opcache installed by default in
+   Ubuntu 14.04 and the "opcache.fast_shutdown = 1" option (See:
+   https://bugs.php.net/bug.php?id=66799).  If you experience segfaults in the
+   php5-fpm process, you can set "opcache.fast_shutdown = 0" or upgrade to a
+   newer version of PHP.
+
 The process manager has to be restarted:
 
 .. code-block:: bash
